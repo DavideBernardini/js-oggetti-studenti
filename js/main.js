@@ -28,10 +28,31 @@ var studenti = [
 studenti.push(studente);
 
 // Dare la possibilità all’utente, attraverso 3 prompt(), di aggiungere un nuovo oggetto studente inserendo nell’ordine: nome, cognome e età.
+var nomeUtente = prompt('Inserisci il tuo nome.');
+
+while (isNaN(parseInt(nomeUtente)) == false || nomeUtente.length < 3 || nomeUtente == undefined) {
+    nomeUtente = prompt('Inserisci un nome valido.');
+}
+
+var cognomeUtente = prompt('Inserisci il tuo cognome.');
+
+while (isNaN(parseInt(cognomeUtente)) == false || cognomeUtente.length < 3 || cognomeUtente == undefined) {
+    cognomeUtente = prompt('Inserisci un cognome valido.');
+}
+
+var etàUtente = parseInt(prompt('Inserisci la tua età.'));
+
+while (isNaN(etàUtente)) {
+    etàUtente = parseInt(prompt("Inserisci un' età valida."));
+}
+while (etàUtente < 18 || etàUtente > 65) {
+    etàUtente = parseInt(prompt('Gli studenti devono essere maggiorenni e non possono avere più di 65 anni.'));
+}
+
 nuovoStudente = {
-    'nome': prompt('Inserisci il tuo nome.'),
-    'cognome': prompt('Inserisci il tuo cognome.'),
-    'età': parseInt(prompt('Inserisci la tua età.'))
+    'nome': nomeUtente,
+    'cognome': cognomeUtente,
+    'età': etàUtente
 };
 
 studenti.push(nuovoStudente);
